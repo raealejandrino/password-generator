@@ -25,6 +25,11 @@
 
 
 
+// SAVE BOOLEAN VALUEs OF CRITERIA AND IMPLEMENT INTO CONDITION STATEMENTS IN FOR ITERATOR LOOP 
+
+
+// append random charset type selector array from TRUE criteria boolean values?
+
 // random number 
 
 var randomNumber = function(min,max) {
@@ -47,15 +52,33 @@ var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*"];
 
 
+function randomLowercase () {
+  var randomLower = randomNumber(0,26);
+  return lowercase[randomLower];
+
+}
+
+
+
+var testArray = [randomLowercase()];
+
+
 
 // password generator function
 
 function generatePassword () {
 
-    // find random lowercase and print it
+    var lowercasePrompt = window.confirm("Do you want lowercases in your password?");
+    if (lowercasePrompt) {
 
-    var randomLower = randomNumber(0,26);
-    console.log(lowercase[randomLower]);
+    }
+
+
+
+    // // find random lowercase and print it
+
+    // var randomLower = randomNumber(0,26);
+    // console.log(lowercase[randomLower]);
 
 
 }
