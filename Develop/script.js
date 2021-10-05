@@ -25,7 +25,7 @@
 
 
 
-// random number
+// random number 
 
 var randomNumber = function(min,max) {
   var value = Math.floor(Math.random() * (max - min + 1) + min);
@@ -47,6 +47,18 @@ var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*"];
 
 
+
+// password generator function
+
+function generatePassword () {
+
+    // find random lowercase and print it
+
+    var randomLower = randomNumber(0,26);
+    console.log(lowercase[randomLower]);
+
+
+}
 
 
 
