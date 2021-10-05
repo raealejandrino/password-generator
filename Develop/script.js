@@ -97,6 +97,19 @@ function generatePassword () {
       criteriaArray.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
     }
 
+
+    var numbersPrompt = window.confirm("Do you want numbers in your password?");
+    if (numbersPrompt) {
+      // if true, add characters into the criteriaArray
+      criteriaArray.push(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+    }
+
+    var specialCharPrompt = window.confirm("Do you want special characters in your password?");
+    if (specialCharPrompt) {
+      // if true, add characters into the criteriaArray
+      criteriaArray.push("!", "@", "#", "$", "%", "^", "&", "*");
+    }
+
     // create password string
 
     var actualPassword = [];
@@ -104,15 +117,21 @@ function generatePassword () {
     // for loop, create string from each random character out of iteration 
     for ( let i=0; i < passwordLength; i++) {
       var randomChar = randomNumber(0,criteriaArray.length);
-      actualPassword.push(randomChar);
+      actualPassword.push(criteriaArray[randomChar]);
 
 
 
     }
 
-    actualPassword.join("");
-    console.log(actualPassword);
+    // print generated password
+    console.log(actualPassword.join(""));
 }
+
+
+
+
+
+
 
 
   // // find random lowercase and print it
