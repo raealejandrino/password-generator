@@ -32,6 +32,11 @@
 
 // random number 
 
+
+// CONFIRMS WILL ADD THE CHARACTERS INTO AN ARRAY, AFTER ALL THE PROMPTS, RANDOMIZE THAT ARRAY AND OUTPUT HOWEVER LONG THE DESIRED LENGTH IS
+
+
+
 var randomNumber = function(min,max) {
   var value = Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -53,6 +58,9 @@ var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*"];
 
 
 function randomLowercase () {
+
+  
+  var criteriaArray = [];
   var randomLower = randomNumber(0,26);
   return lowercase[randomLower];
 
@@ -68,21 +76,49 @@ var testArray = [randomLowercase()];
 
 function generatePassword () {
 
+
+  // prompt user password length
+  var passwordLength = window.prompt("How long do you want your password? Enter a number between 8 and 128");
+
+
+  // create full array
+
+  var criteriaArray = [];
+
     var lowercasePrompt = window.confirm("Do you want lowercases in your password?");
     if (lowercasePrompt) {
+      // if true, add characters into the criteriaArray
+      criteriaArray.push("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+    }
+
+    var uppercasePrompt = window.confirm("Do you want uppercases in your password?");
+    if (uppercasePrompt) {
+      // if true, add characters into the criteriaArray
+      criteriaArray.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+    }
+
+    // create password string
+
+    var actualPassword = [];
+
+    // for loop, create string from each random character out of iteration 
+    for ( let i=0; i < passwordLength; i++) {
+      var randomChar = randomNumber(0,criteriaArray.length);
+      actualPassword.push(randomChar);
+
+
 
     }
 
+    actualPassword.join("");
+    console.log(actualPassword);
+}
 
 
-    // // find random lowercase and print it
+  // // find random lowercase and print it
 
     // var randomLower = randomNumber(0,26);
     // console.log(lowercase[randomLower]);
-
-
-}
-
 
 
 
