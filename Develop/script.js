@@ -74,9 +74,13 @@ function generatePassword () {
   // prompt user password length
   var passwordLength = window.prompt("How long do you want your password? Enter a number between 8 and 128");
 
+  // convert passwordLength into an integer
+
+  var parsedPass = parseInt(passwordLength);
+
   // check condition of integer value from prompt. Return to function if invalid
 
-  if (passwordLength < 8 || passwordLength > 128 || passwordLength || typeof passwordLength === "string") {
+  if (parsedPass < 8 || parsedPass > 128 || !parsedPass ) {
     window.alert("You need to provide a valid answer! Please try again.");
     return generatePassword();
   }
