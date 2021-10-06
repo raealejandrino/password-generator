@@ -17,7 +17,9 @@ var allUppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
 
 var allNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-var allSpecials = ["!", "#","$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
+var allSpecials = ["!", "#","$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
+
+
 
 
 // password generator function
@@ -37,9 +39,9 @@ function generatePassword () {
       return generatePassword();
     }
 
-
     // create filler array
     var criteriaArray = [];
+    
 
     var lowercasePrompt = window.confirm("Do you want lowercases in your password?");
     if (lowercasePrompt) {
@@ -69,12 +71,12 @@ function generatePassword () {
     console.log(criteriaArray);
 
 
-  
+    var actualPassword = [];
 
     // create password array FUNCTION
     function passwordGenIterator() {
 
-        var actualPassword = [];
+        
 
         // for loop, create string from each random character out of iteration 
         for ( let i=0; i < passwordLength; i++) {
@@ -137,16 +139,29 @@ function generatePassword () {
             return passwordGenIterator();
           }
         } 
-      // turn password array into string and print generated password
-      return(actualPassword.join(""));
+
+      // remove any undefined elements
+
+      
+      // actualPassword = actualPassword.filter(function(value){
+      //   return value !== undefined;
+      // })
+      // // turn password array into string and print generated password
+      // return(actualPassword.join(""));
 
     }
 
 
 
 
-
+  
   passwordGenIterator();
+  actualPassword = actualPassword.filter(function(element){
+    return element !== undefined;
+  });
+  console.log(actualPassword);
+  // turn password array into string and print generated password
+  return(actualPassword.join(""));
 }
 
 
