@@ -1,59 +1,3 @@
-// Assignment code here
-
-
-// Implement window prompt for length of password
-
-// Store that value in a variable that will be used in the condition expression of iterator 
-
-// must create randomizer for each criteria?
-
-// create array for all lowercase letters, all uppercase letters, all numbers, all special characters
-
-// make use of random number function
-
-
-
-////////////////////////////////////
-
-
-// create criteria functions that include prompts with validation and stores the value in a variable
-
-// create array with each criteria function assigned its own index
-
-// run for loop that runs each criteria function and prints the value into a string
-
-
-
-
-// SAVE BOOLEAN VALUEs OF CRITERIA AND IMPLEMENT INTO CONDITION STATEMENTS IN FOR ITERATOR LOOP 
-
-
-// append random charset type selector array from TRUE criteria boolean values?
-
-// random number 
-
-
-// CONFIRMS WILL ADD THE CHARACTERS INTO AN ARRAY, AFTER ALL THE PROMPTS, RANDOMIZE THAT ARRAY AND OUTPUT HOWEVER LONG THE DESIRED LENGTH IS
-
-
-
-
-
-// Charset vars
-
-// 26 in alphabet
-var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
-// 10 in numbers
-var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-// 8 specials
-var specialChar = ["!", "#","$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
-
-
-
-
 
 // Random number function
 
@@ -128,15 +72,6 @@ function generatePassword () {
     // print generated password
     return(actualPassword.join(""));
 }
-
-
-
-
-
-
-
-
-
 
 
 // Get references to the #generate element
