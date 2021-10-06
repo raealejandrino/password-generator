@@ -80,7 +80,7 @@ function generatePassword () {
 
         // for loop, create string from each random character out of iteration 
         for ( let i=0; i < passwordLength; i++) {
-          var randomChar = randomNumber(0,criteriaArray.length);
+          var randomChar = randomNumber(0,criteriaArray.length-1);
           actualPassword.push(criteriaArray[randomChar]);
         }
 
@@ -140,23 +140,16 @@ function generatePassword () {
         } 
     }
 
-  // remove undefined elements that were generated in the password
+
+  console.log(actualPassword);
 
   passwordGenIterator();
-  actualPassword = actualPassword.filter(function(element){
-    return element !== undefined;
-  });
-
-  // if removing undefined characters is less than passwordLength, reset and redo function to find new password
-
-  if (actualPassword.length < passwordLength) {
-    var actualPassword = [];
-    passwordGenIterator();
-  }
-
   // turn password array into string and print generated password
   return(actualPassword.join(""));
 }
+
+
+
 
 
 // Get references to the #generate element
