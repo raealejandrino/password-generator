@@ -44,26 +44,26 @@ function generatePassword () {
     var lowercasePrompt = window.confirm("Do you want lowercases in your password?");
     if (lowercasePrompt) {
       // if true, add characters into the criteriaArray
-      criteriaArray.push(allLowercase);
+      criteriaArray = criteriaArray.concat(allLowercase);
     }
 
     var uppercasePrompt = window.confirm("Do you want uppercases in your password?");
     if (uppercasePrompt) {
       // if true, add characters into the criteriaArray
-      criteriaArray.push(allUppercase);
+      criteriaArray = criteriaArray.concat(allUppercase);
     }
 
 
     var numbersPrompt = window.confirm("Do you want numbers in your password?");
     if (numbersPrompt) {
       // if true, add characters into the criteriaArray
-      criteriaArray.push(allNumbers);
+      criteriaArray = criteriaArray.concat(allNumbers);
     }
 
     var specialCharPrompt = window.confirm("Do you want special characters in your password?");
     if (specialCharPrompt) {
       // if true, add characters into the criteriaArray
-      criteriaArray.push(allSpecials);
+      criteriaArray = criteriaArray.concat(allSpecials);
     }
 
     console.log(criteriaArray);
@@ -83,34 +83,70 @@ function generatePassword () {
         }
 
         // CHECKS TO ENSURE CHARACTER CRITERIA IS CONFIRMED IN THE GENERATED PASSWORD
+        
+        var boolCriteria = false;
 
         if (lowercasePrompt) {
-            if (!actualPassword.includes(allLowercase)) {
-              return passwordGenIterator();
-            }
-        } 
-        if (uppercasePrompt) {
-            if (!actualPassword.includes(allUppercase)) {
-              return passwordGenIterator();
-            }
-        } 
-        if (numbersPrompt) {
-            if (!actualPassword.includes(allNumbers)) {
-              return passwordGenIterator();
-            }
-        }  
-        if (specialCharPrompt) {
-          if (!actualPassword.includes(allSpecials)) {
-              return passwordGenIterator();
+          for (let i=0; i < allLowercase.length && boolCriteria === false; i++) {
+            boolCriteria = actualPassword.includes(allLowercase[i]) 
+            
           }
-        }
+          if (boolCriteria === false) {
+            // if false return function
+            return passwordGenIterator();
+          }
+          return !boolCriteria;
+        } 
 
+
+        if (uppercasePrompt) {
+          for (let i=0; i < allUppercase.length && boolCriteria === false; i++) {
+            boolCriteria = actualPassword.includes(allUppercase[i]) 
+
+          }
+          if (boolCriteria === false) {
+            // if false return function
+            return passwordGenIterator();
+          }
+          return !boolCriteria;
+        } 
+
+
+
+        if (numbersPrompt) {
+          for (let i=0; i < allNumbers.length && boolCriteria === false; i++) {
+            boolCriteria = actualPassword.includes(allNumbers[i]) 
+
+          }
+          if (boolCriteria === false) {
+            // if false return function
+            return passwordGenIterator();
+          }
+          return !boolCriteria;
+        } 
+
+
+
+        if (specialCharPrompt) {
+          for (let i=0; i < allSpecials.length && boolCriteria === false; i++) {
+            boolCriteria = actualPassword.includes(allSpecials[i]) 
+
+          }
+          if (boolCriteria === false) {
+            // if false return function
+            return passwordGenIterator();
+          }
+        } 
       // turn password array into string and print generated password
       return(actualPassword.join(""));
 
     }
 
-    passwordGenIterator();
+
+
+
+
+  passwordGenIterator();
 }
 
 
