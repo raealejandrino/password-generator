@@ -37,11 +37,6 @@
 
 
 
-var randomNumber = function(min,max) {
-  var value = Math.floor(Math.random() * (max - min + 1) + min);
-
-  return value;
-}
 
 
 // Charset vars
@@ -57,18 +52,17 @@ var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var specialChar = ["!", "#","$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 
 
-function randomLowercase () {
 
-  
-  var criteriaArray = [];
-  var randomLower = randomNumber(0,26);
-  return lowercase[randomLower];
 
+
+// Random number function
+
+
+var randomNumber = function(min,max) {
+  var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+  return value;
 }
-
-
-
-var testArray = [randomLowercase()];
 
 
 
@@ -79,6 +73,13 @@ function generatePassword () {
 
   // prompt user password length
   var passwordLength = window.prompt("How long do you want your password? Enter a number between 8 and 128");
+
+  // check condition of integer value from prompt. Return to function if invalid
+
+  if (passwordLength < 8 || passwordLength > 128 || !passwordLength) {
+    window.alert("You need to provide a valid answer! PLease try again.");
+    return generatePassword();
+  }
 
 
   // create full array
@@ -118,9 +119,6 @@ function generatePassword () {
     for ( let i=0; i < passwordLength; i++) {
       var randomChar = randomNumber(0,criteriaArray.length);
       actualPassword.push(criteriaArray[randomChar]);
-
-
-
     }
 
     // print generated password
@@ -133,11 +131,6 @@ function generatePassword () {
 
 
 
-
-  // // find random lowercase and print it
-
-    // var randomLower = randomNumber(0,26);
-    // console.log(lowercase[randomLower]);
 
 
 
