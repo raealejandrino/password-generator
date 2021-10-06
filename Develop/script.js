@@ -54,7 +54,7 @@ var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // 8 specials
-var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*"];
+var specialChar = ["!", "#","$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 
 
 function randomLowercase () {
@@ -107,7 +107,7 @@ function generatePassword () {
     var specialCharPrompt = window.confirm("Do you want special characters in your password?");
     if (specialCharPrompt) {
       // if true, add characters into the criteriaArray
-      criteriaArray.push("!", "@", "#", "$", "%", "^", "&", "*");
+      criteriaArray.push("!", "#","$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~");
     }
 
     // create password string
@@ -124,7 +124,7 @@ function generatePassword () {
     }
 
     // print generated password
-    console.log(actualPassword.join(""));
+    return(actualPassword.join(""));
 }
 
 
