@@ -76,8 +76,8 @@ function generatePassword () {
 
   // check condition of integer value from prompt. Return to function if invalid
 
-  if (passwordLength < 8 || passwordLength > 128 || !passwordLength) {
-    window.alert("You need to provide a valid answer! PLease try again.");
+  if (passwordLength < 8 || passwordLength > 128 || passwordLength || typeof passwordLength === "string") {
+    window.alert("You need to provide a valid answer! Please try again.");
     return generatePassword();
   }
 
