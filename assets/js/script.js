@@ -113,8 +113,7 @@ function generatePassword () {
           return !boolCriteria;
         } 
 
-
-
+          
         if (numbersPrompt) {
           for (let i=0; i < allNumbers.length && boolCriteria === false; i++) {
             boolCriteria = actualPassword.includes(allNumbers[i]) 
@@ -139,27 +138,22 @@ function generatePassword () {
             return passwordGenIterator();
           }
         } 
-
-      // remove any undefined elements
-
-      
-      // actualPassword = actualPassword.filter(function(value){
-      //   return value !== undefined;
-      // })
-      // // turn password array into string and print generated password
-      // return(actualPassword.join(""));
-
     }
 
+  // remove undefined elements that were generated in the password
 
-
-
-  
   passwordGenIterator();
   actualPassword = actualPassword.filter(function(element){
     return element !== undefined;
   });
-  console.log(actualPassword);
+
+  // if removing undefined characters is less than passwordLength, reset and redo function to find new password
+
+  if (actualPassword.length < passwordLength) {
+    var actualPassword = [];
+    passwordGenIterator();
+  }
+
   // turn password array into string and print generated password
   return(actualPassword.join(""));
 }
